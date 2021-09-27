@@ -1,0 +1,110 @@
+.calendar {
+    display: block;
+    width: 1200px;
+    padding: 30px;
+    
+}
+*{
+  box-sizing: border-box;
+}
+.ant-picker-calendar {
+background-color: aliceblue;
+}
+
+.ant-picker-calendar-full {
+  background-color: rgb(227, 247, 255);
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ant-picker-date-panel {
+  background-color: white;
+}
+
+.events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.events .ant-badge-status {
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.notes-month {
+  font-size: 28px;
+  text-align: center;
+}
+.notes-month section {
+  font-size: 28px;
+}
+
+.form-popup {
+  /* border: 1px solid black; */
+  height: 30vh;
+  width: 100%;
+  padding: 5px;
+}
+
+.input-form {
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 20px;
+  outline: none;
+}
+
+.row-1 {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  
+  margin-bottom: 27px;
+}
+
+
+
+.title {
+  
+  width: 200px;
+}
+
+.location {
+  margin-left: 15px;
+  width: 200px;
+}
+
+.row-2 {
+
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  
+  margin-bottom: 10px;
+  height: 50px;
+  align-items: center;
+
+}
+
+.row-3 {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+ 
+  
+  height: 50px;
+  align-items: center;
+}
+
+.row-4 {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  
+  
+  height: 50px;
+  align-items: center;
+}
+
+
+
