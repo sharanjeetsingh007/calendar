@@ -24,8 +24,21 @@ function CalendarNew() {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [pickerDate, setPickerDate] = useState(null)
+    const [startDate, setStartDate] = useState(null)
+    const [endDate, setEndDate] = useState(null)
 
 
+
+
+    const realEvents = [{
+        id: 0,
+        title: title,
+        location: location,
+        start: new Date(startDate),
+        end: new Date(endDate),
+        description: description,
+
+    }]
 
 
 
@@ -34,33 +47,24 @@ function CalendarNew() {
             id: 0,
             title: 'All Day Event very long title',
             allDay: true,
-            start: new Date(2021, 8, 29),
-            end: new Date(2021, 9, 3),
+            start: new Date(2021, 8, 1, 0, 20, 20),
+            end: new Date(2021, 8, 3, 0, 20, 20),
             location: 'melbourne',
         },
         {
             id: 1,
             title: 'Long Event',
-            start: new Date(2021, 8, 7),
-            end: new Date(2021, 8, 10),
+            start: new Date(2021, 8, 1),
+            end: new Date(2021, 8, 3),
             location: 'sydney',
         },
 
-        {
-            id: 2,
-            title: 'DTS sdsdsd',
-            start: new Date(2021, 8, 1, 0, 0, 0),
-            end: new Date(2021, 8, 3, 0, 0, 0),
-            location: 'brisbane',
-        },
 
     ]
 
     // for PopUp
     const showModal = () => {
-
         setVisible(true);
-
     };
 
 
@@ -69,16 +73,21 @@ function CalendarNew() {
         setVisible(false);
     };
 
+
+
+
     const handleOk = (event) => {
         event.preventDefault();
 
-
-        setTitle("");
-        setLocation("");
-        setDescription("");
-        setPickerDate(new Date())
-        console.log("Title = ", title, ',Location = ', location, ',Description = ', description, ',date-range', pickerDate)
+        // setTitle("");
+        // setLocation("");
+        // setDescription("");
+        // setPickerDate(new Date())
+        setStartDate(pickerDate[0].format('YYYY, M, D, HH:mm:ss'))
+        setEndDate(pickerDate[1].format('YYYY, M, D, HH:mm:ss'))
+        console.log("Title = ", title, ',Location = ', location, ',Description = ', description, "Daterange =", pickerDate[0].format('YYYY, M, D,5,7,8'))
         setVisible(false);
+
 
     };
 
@@ -99,13 +108,17 @@ function CalendarNew() {
     const dateChange = (dateString) => {
         setPickerDate(dateString)
     }
+    console.log(title)
+    ///console.log("range picker start date", pickerDate[0])
+    console.log("range picker end date", endDate)
+    console.log("real event = ", realEvents)
 
 
     return (
         <div>
             <Calendar
                 localizer={localizer}
-                events={events}
+                events={realEvents}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}
@@ -171,7 +184,7 @@ function CalendarNew() {
                                         name="date_picker"
                                         value={pickerDate}
                                         onChange={dateChange}
-
+                                        format="YYYY-M-D HH:mm:ss"
                                         placeholder={['Start date', 'End date']}
                                         style={{ width: '420px' }}
                                         size={'large'} />
